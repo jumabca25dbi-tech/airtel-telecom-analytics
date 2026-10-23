@@ -1,0 +1,5 @@
+data/raw/*.db
+data/practice/*.db
+.venv/
+__pycache__/
+.ipynb_checkpoints/
