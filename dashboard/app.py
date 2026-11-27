@@ -1,5 +1,6 @@
 import base64
 import sqlite3
+import urllib.request
 from pathlib import Path
 
 import numpy as np
@@ -42,7 +43,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-DB_PATH = Path(__file__).resolve().parent.parent / "data" / "raw" / "airtel.db"
+DB_PATH = Path("/tmp/airtel.db")
+
+DATABASE_URL = "https://github.com/jumabca25dbi-tech/airtel-telecom-analytics/releases/download/v1.0-data/airtel.db"
+
+if not DB_PATH.exists():
+    urllib.request.urlretrieve(DATABASE_URL, DB_PATH)
+
+HERO_IMG_PATH = Path(__file__).resolve().parent / "assets" / "airtel_hero.png"
+START_DATE = "2025-01-01"
+END_DATE = "2025-06-30"
 HERO_IMG_PATH = Path(__file__).resolve().parent / "assets" / "airtel_hero.png"
 START_DATE = "2025-01-01"
 END_DATE = "2025-06-30"
